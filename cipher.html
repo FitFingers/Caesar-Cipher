@@ -13,45 +13,45 @@
   </header>
 
   <main>
-    <section id="appBoxCont">
+    <section id="appContents">
       
   <!-- Input box -->
-      <div id="inputBox" class="cont">
+      <div id="inputBox" class="mainContainer">
         <textarea id="inputText" type="textarea" placeholder="Hello there, I am the Caesar Cipher. Please note the friendly message; this could easily have been an offensive one and you'd never have known!"></textarea>
-        <button id="encrypt" class="button largebtn">Encrypt</button>
+        <button id="runEncryption" class="button largebtn">Encrypt</button>
       </div>
 
   <!-- Settings box -->
-      <div id="settingsBox" class="cont">
+      <div id="settingsBox" class="mainContainer">
         
   <!-- Increment buttons -->
         <span>Settings</span><hr>
-        <div class="optionCont">
-          <div id="decre" class="option incrementer">
+        <div class="optionContainer">
+          <div id="decrementOffset" class="option incrementer">
             <div>⊖</div>
           </div>
           
           <div id="valueDisplay" class="option">
-            <div id="incValue">1</div>
+            <div id="offsetValue">1</div>
           </div>
           
-          <div id="incre" class="incrementer option">
+          <div id="incrementOffset" class="incrementer option">
             <div>⊕</div>
           </div>
         </div>
         
   <!-- Caps toggle -->
-        <div id="capsTog">
+        <div id="caseSensitiveOptions">
           <hr><span>Case sensitive:</span><hr>
-          <div class="optionCont">
-            <div id="caseYes" class="option">Yes</div>
-            <div id="caseNo" class="option">No</div>
+          <div class="optionContainer">
+            <div id="caseSensitiveOn" class="option">Yes</div>
+            <div id="caseSensitiveOff" class="option">No</div>
           </div>
         </div>
       </div>
 
   <!-- Output box -->
-      <div id="outputBox" class="cont">
+      <div id="outputBox" class="mainContainer">
         <textarea id="outputText" type="textarea"></textarea>
         <button id="copyButton" class="button largebtn">Copy</button>
       </div>
