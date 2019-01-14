@@ -82,6 +82,26 @@ hr {
   border: thin solid gray;
 }
 
+#settingsBox::after {
+  content: "";
+  background: rgba(255,255,255,0.22);
+  position: absolute;
+  margin-top: 40px;
+  left: 4%;
+  width: 92%;
+  height: 60px;
+}
+
+#settingsBox::before {
+  content: "";
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  margin-top: 274px;
+  left: 1.5%;
+  width: 97%;
+  height: 60px;
+}
+
 #counter {
   background: gray;
   padding: 6px;
