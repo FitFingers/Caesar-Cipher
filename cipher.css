@@ -19,7 +19,7 @@ header {
   background: linear-gradient(105deg, #7dd, #dd7);
   display: block;
   position: relative;
-  margin: 10vh auto;
+  margin: 8vh auto;
   padding: 4px;
   width: 60%;
   border: thick solid white;
@@ -45,23 +45,23 @@ h2 {
 #appBoxCont::before {
   content: "";
   position: absolute;
-  margin-top: -116px;
+  margin-top: -196px;
   left: 1%;
   right: 1%;
   border-left: 49vw solid transparent;
   border-right: 49vw solid transparent;
-  border-bottom: 100px solid rgba(0,0,0,0.3);
+  border-bottom: 180px solid rgba(0,0,0,0.3);
 }
 
 #appBoxCont::after {
   content: "";
   position: absolute;
-  margin-top: -102px;
+  margin-top: -182px;
   left: 2%;
   right: 2%;
   border-left: 48vw solid transparent;
   border-right: 48vw solid transparent;
-  border-bottom: 96px solid rgba(255,255,255,0.22);
+  border-bottom: 176px solid rgba(255,255,255,0.22);
 }
 
 .cont {
@@ -97,6 +97,10 @@ textarea {
 
 .option, .button {
   cursor: pointer;
+}
+
+#valueDisplay {
+  cursor: default;
 }
 
 hr {
@@ -209,6 +213,11 @@ hr {
   
   .optionCont div {
     flex: 1;
+  }
+  
+  #appBoxCont::before {
+    border-bottom: 106px solid rgba(0,0,0,0.3);;
+    margin: -122px 1%;
   }
   
   #outputBox::after {
