@@ -1,8 +1,8 @@
 window.onload = function() {
   
   // DEFINE VARIABLES
-  let offset = document.getElementById("incValue").innerHTML;
-  offset = 1;
+  let offset = 1;
+  let caseSens = false;
   
   
   
@@ -17,14 +17,19 @@ window.onload = function() {
       var str = document.getElementById("inputText").placeholder;
     }
     
-    // Create new string and push individual letters onto it
-    let newStr = [];
+    // Use input text to create output text
+    // Very slow function which must be simplified, potentially with regex object (lower = this regex, upper = that regex) and .replace should run only once
     offset = parseInt(document.getElementById("incValue").innerHTML);
-    for (let i = 0; i < str.length; i++) {
-      newStr.push(str[i].replace(/([A-Z])/g, String.fromCharCode((str.charCodeAt(i)-13 + offset) % 26 + 65))
-                  .replace(/([a-z])/g, String.fromCharCode((str.charCodeAt(i)-19 + offset) % 26 + 97)));
+    
+    if (caseSens == true) {
+      document.getElementById("outputText").innerHTML =
+        str.replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0) +7 + offset) % 26 + 97))
+        .replace(/[A-Z]/g, letter => String.fromCharCode((letter.charCodeAt(0) + 13 + offset) % 26 + 65));
+    
+    } else {
+      document.getElementById("outputText").innerHTML =
+        str.toLowerCase().replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0) + 7 + offset) % 26 + 65));
     }
-    document.getElementById("outputText").innerHTML = newStr.join("");
   }
   
   // Copy contents to clipboard
@@ -46,6 +51,12 @@ window.onload = function() {
     cipher();
   }
   
+  // Toggle case sensitive on/off
+  function toggleCaps() {
+    this.id == "caseYes" ? caseSens = true : caseSens = false;
+    cipher();
+  }
+  
   
   
   // ADD EVENT LISTENERS
@@ -60,6 +71,10 @@ window.onload = function() {
   
   // Decrement button
   document.getElementById("decre").addEventListener("click", decrement);
+  
+  // Caps toggle
+  document.getElementById("caseYes").addEventListener("click", toggleCaps);
+  document.getElementById("caseNo").addEventListener("click", toggleCaps);
   
   
   
