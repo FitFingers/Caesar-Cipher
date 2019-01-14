@@ -1,9 +1,18 @@
 body {
-  background: linear-gradient(105deg, #7dd, #dd7);
-  background-size: contain;
+  min-width: 270px;
   font-family: garamond;
   text-align: center;
   color: #282828;
+}
+
+#bg {
+  background: linear-gradient(105deg, #7dd, #dd7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 header {
@@ -37,7 +46,8 @@ h2 {
   content: "";
   position: absolute;
   margin-top: -116px;
-  margin-left: -34px;
+  left: 1%;
+  right: 1%;
   border-left: 49vw solid transparent;
   border-right: 49vw solid transparent;
   border-bottom: 100px solid rgba(0,0,0,0.3);
@@ -47,7 +57,8 @@ h2 {
   content: "";
   position: absolute;
   margin-top: -102px;
-  margin-left: -24px;
+  left: 2%;
+  right: 2%;
   border-left: 48vw solid transparent;
   border-right: 48vw solid transparent;
   border-bottom: 96px solid rgba(255,255,255,0.22);
@@ -58,6 +69,8 @@ h2 {
   padding: 32px;
   margin: auto 16px;
   width: 21vw;
+  height: 230px;
+  overflow: hidden;
   border-radius: 2%;
 }
 
@@ -66,12 +79,8 @@ textarea {
   width: 97%;
 }
 
-.convert {
+.button {
   background: gray;
-  display: block;
-  margin: 6px auto -12px auto;
-  padding: 10px;
-  width: 70%;
   overflow: hidden;
   border: 2px solid #222;
   border-radius: 5px;
@@ -79,15 +88,31 @@ textarea {
   font-weight: bold;
 }
 
+.largebtn {
+  display: block;
+  margin: 6px auto -12px auto;
+  padding: 10px;
+  min-width: 80px;
+}
+
+.option, .button {
+  cursor: pointer;
+}
+
 hr {
   border: thin solid gray;
+}
+
+#settingsBox {
+  min-width: 100px;
+  font-weight: bold;
 }
 
 #settingsBox::after {
   content: "";
   background: rgba(255,255,255,0.22);
   position: absolute;
-  margin-top: 38px;
+  margin-top: 24px;
   left: 5%;
   width: 90%;
   height: 64px;
@@ -97,31 +122,112 @@ hr {
   content: "";
   background: rgba(0,0,0,0.3);
   position: absolute;
-  margin-top: 274px;
+  margin-top: 278px;
   left: 1.5%;
   width: 97%;
   height: 60px;
 }
 
-#counter {
+.optionCont {
   background: gray;
+  display: flex;
+  flex-direction: column;
   padding: 6px;
   border-radius: 5px;
   border: 2px solid lightgray;
 }
 
-#counter div {
-  border: thin solid white;
+.option {
+  background: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 2px;
+  font-weight: bold;
 }
 
+/* Flex not working in column: should be 1:2:1 ratio */
 #valueDisplay {
-  height: 60px;
-}
-
-#valueDisplay #incValue {
-  border: none;
+  flex: 2;
 }
 
 .incrementer {
+  flex: 1;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 610px) {
+  #appBoxCont::after, #settingsBox::after, #settingsBox::before, #settingsBox span, #settingsBox hr {
+    display: none;
+  }
+  
+  header {
+    margin: 4vh auto;
+    width: 86%;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 16px;
+  }
+  
+  #appBoxCont {
+    flex-direction: column;
+  }
+  
+  .cont {
+    width: auto;
+    height: auto;
+    margin: 16px 0 0 0;
+  }
+  
+  #inputBox {
+    margin-top: 62px;
+  }
+  
+  textarea {
+    min-height: 64px;
+  }
+  
+  #settingsBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: -38px auto;
+    width: 30%;
+  }
+  
+  .optionCont {
+    flex-direction: row;
+    padding: 2px;
+    height: 40px;
+  }
+  
+  .optionCont div {
+    flex: 1;
+  }
+  
+  #outputBox::after {
+    content: "";
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 48px 1%;
+    height: 36px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  h1 {
+    font-size: 18px;
+  }
+  
+  h2 {
+    font-size: 14px;
+  }
 }
