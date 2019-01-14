@@ -2,7 +2,7 @@ window.onload = function() {
   
   // DEFINE VARIABLES
   let offset = 1;
-  let caseSens = false;
+  let caseSens = true;
   
   
   
@@ -16,19 +16,24 @@ window.onload = function() {
     } else {
       var str = document.getElementById("inputText").placeholder;
     }
-    
     // Use input text to create output text
-    // Very slow function which must be simplified, potentially with regex object (lower = this regex, upper = that regex) and .replace should run only once
     offset = parseInt(document.getElementById("incValue").innerHTML);
-    
-    if (caseSens == true) {
-      document.getElementById("outputText").innerHTML =
-        str.replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0) +7 + offset) % 26 + 97))
-        .replace(/[A-Z]/g, letter => String.fromCharCode((letter.charCodeAt(0) + 13 + offset) % 26 + 65));
-    
+    document.getElementById("outputText").innerHTML = str.replace(/[A-Z]/gi, upperOrLower);
+  }
+
+  // Determine how to handle each character
+  function upperOrLower(letter) {
+    if (letter.charCodeAt(0) < 94) {
+      // Encode uppercase to uppercase
+      return String.fromCharCode((letter.charCodeAt(0) + 13 + offset) % 26 + 65);
     } else {
-      document.getElementById("outputText").innerHTML =
-        str.toLowerCase().replace(/[a-z]/g, letter => String.fromCharCode((letter.charCodeAt(0) + 7 + offset) % 26 + 65));
+      if (caseSens == true) {
+        // Encode lowercase to lowercase
+        return String.fromCharCode((letter.charCodeAt(0) + 7 + offset) % 26 + 97);
+      } else {
+        // Encode lowercase to uppercase
+        return String.fromCharCode((letter.charCodeAt(0) + 7 + offset) % 26 + 65);
+      }
     }
   }
   
