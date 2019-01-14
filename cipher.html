@@ -1,4 +1,6 @@
 <body>
+  <div id="bg"></div>
+  
   <header>
     <h1>Javascript Caesar's Cipher</h1>
     <h2>Encode and decode your messages</h2>
@@ -7,31 +9,45 @@
   <main>
     <section id="appBoxCont">
       
+  <!-- Input box -->
       <div id="inputBox" class="cont">
         <textarea id="inputText" type="textarea" placeholder="Hello there, I am the Caesar Cipher. Please note the friendly message; this could easily have been an offensive one and you'd never have known!"></textarea>
-        <button id="encrypt" class="convert">Encrypt</button>
+        <button id="encrypt" class="button largebtn">Encrypt</button>
       </div>
 
+  <!-- Settings box -->
       <div id="settingsBox" class="cont">
+        
+  <!-- Increment buttons -->
         <span>Settings</span><hr>
-        <div id="counter">
-          <div id="incre" class="incrementer">
-            <p>+</p>
+        <div class="optionCont">
+          <div id="decre" class="option incrementer">
+            <div>⊖</div>
           </div>
           
-          <div id="valueDisplay">
-            <div id="incValue">0</div>
+          <div id="valueDisplay" class="option">
+            <div id="incValue">1</div>
           </div>
           
-          <div id="decre" class="incrementer">
-            <p>-</p>
+          <div id="incre" class="incrementer option">
+            <div>⊕</div>
+          </div>
+        </div>
+        
+  <!-- Caps toggle -->
+        <div id="capsTog">
+          <hr><span>Case sensitive:</span><hr>
+          <div class="optionCont">
+            <div class="option">Yes</div>
+            <div class="option">No</div>
           </div>
         </div>
       </div>
 
+  <!-- Output box -->
       <div id="outputBox" class="cont">
         <textarea id="outputText" type="textarea"></textarea>
-        <button id="copyButton" class="convert">Copy</button>
+        <button id="copyButton" class="button largebtn">Copy</button>
       </div>
       
     </section>
