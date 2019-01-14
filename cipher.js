@@ -1,61 +1,80 @@
-<head>
-    <title>Encrypt Your Messages and Retain Your Privacy | Caesar's Cipher</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="styles/cipher.css" rel="stylesheet" type="text/css">
-    <script src="scripts/cipher.js" type="text/javascript"></script>
-</head>
+window.onload = function() {
+  
+  // DEFINE VARIABLES
+  let offset = 1;
+  let isCaseSensitive = true;
+  
+  
+  
+  // DEFINE FUNCTIONS
+  // Take inputText and offset and return ciphered text
+  function cipher() {
+    const inputText = document.getElementById("inputText").value || document.getElementById("inputText").placeholder;
+    offset = parseInt(document.getElementById("offsetValue").innerHTML);
+    return inputText.replace(/[A-Z]/gi, upperOrLower);
+  }
 
-<body>  
-  <header>
-    <h1>Javascript Caesar's Cipher</h1>
-    <h2>Encode and decode your messages</h2>
-  </header>
-
-  <main>
-    <section id="appContents">
-      
-  <!-- Input box -->
-      <div id="inputBox" class="mainContainer">
-        <textarea id="inputText" type="textarea" placeholder="Hello there, I am the Caesar Cipher. Please note the friendly message; this could easily have been an offensive one and you'd never have known!"></textarea>
-        <button id="runEncryption" class="button largebtn">Encrypt</button>
-      </div>
-
-  <!-- Settings box -->
-      <div id="settingsBox" class="mainContainer">
-        
-  <!-- Increment buttons -->
-        <span>Settings</span><hr>
-        <div class="optionContainer">
-          <div id="decrementOffset" class="option incrementer">
-            <div>⊖</div>
-          </div>
-          
-          <div id="valueDisplay" class="option">
-            <div id="offsetValue">1</div>
-          </div>
-          
-          <div id="incrementOffset" class="incrementer option">
-            <div>⊕</div>
-          </div>
-        </div>
-        
-  <!-- Caps toggle -->
-        <div id="caseSensitiveOptions">
-          <hr><span>Case sensitive:</span><hr>
-          <div class="optionContainer">
-            <div id="caseSensitiveOn" class="option">Yes</div>
-            <div id="caseSensitiveOff" class="option">No</div>
-          </div>
-        </div>
-      </div>
-
-  <!-- Output box -->
-      <div id="outputBox" class="mainContainer">
-        <textarea id="outputText" type="textarea"></textarea>
-        <button id="copyButton" class="button largebtn">Copy</button>
-      </div>
-      
-    </section>
-  </main>
-</body>
+  // Determine how to handle each character
+  const upperOrLower = (letter) => letter.charCodeAt(0) < 94
+  ? String.fromCharCode((letter.charCodeAt(0) + 13 + offset) % 26 + 65)
+  : String.fromCharCode((letter.charCodeAt(0) + 7 + offset) % 26 + checkCaseSensitivity());
+  
+  // Check the case of a letter and return correct number to calculate output from input (65 to caps, 97 to lowercase)
+  function checkCaseSensitivity() {
+    const asciiCorrectionValue = isCaseSensitive === true ? 97 : 65;
+    return asciiCorrectionValue;
+  }
+  
+  // Mutate the DOM and render outputText
+  const renderOutput = () => document.getElementById("outputText").innerHTML = cipher();
+  
+  // Copy contents to clipboard
+  const copyContent = () => window.prompt("Copy to clipboard: Ctrl+C, enter", document.getElementById("outputText").innerHTML);
+  
+  // Increment the offset value
+  function increment() {
+    offset++;
+    document.getElementById("offsetValue").innerHTML = offset;
+    renderOutput();
+  }
+  
+  // Decerement the offset value
+  function decrement() {
+    offset--;
+    document.getElementById("offsetValue").innerHTML = offset;
+    renderOutput();
+  }
+  
+  // Toggle case sensitive on/off
+  function toggleCaps() {
+    isCaseSensitive = this.id === "caseSensitiveOn" ? true : false;
+    renderOutput();
+  }
+  
+  
+  
+  // ADD EVENT LISTENERS
+  // Add encrypt button functionality
+  document.getElementById("runEncryption").addEventListener("click", renderOutput);
+  
+  // Copy button
+  document.getElementById("copyButton").addEventListener("click", copyContent);
+  
+  // Increment button
+  document.getElementById("incrementOffset").addEventListener("click", increment);
+  
+  // Decrement button
+  document.getElementById("decrementOffset").addEventListener("click", decrement);
+  
+  // Caps toggle
+  document.getElementById("caseSensitiveOn").addEventListener("click", toggleCaps);
+  document.getElementById("caseSensitiveOff").addEventListener("click", toggleCaps);
+  
+  
+  
+  // FUNCTIONS TO RUN ON PAGE LOAD
+  // Run once on pageload for placeholder text
+  renderOutput();
+  
+  // END OF WINDOW.ONLOAD
+}
