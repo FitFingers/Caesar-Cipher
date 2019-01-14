@@ -2,7 +2,7 @@ window.onload = function() {
   
   // DEFINE VARIABLES
   let offset = document.getElementById("incValue").innerHTML;
-  offset = 0;
+  offset = 1;
   
   
   
