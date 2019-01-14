@@ -1,18 +1,11 @@
 body {
+  background: linear-gradient(105deg, #7dd, #dd7);
+  margin: auto auto;
   min-width: 270px;
+  max-width: 950px;
   font-family: garamond;
   text-align: center;
   color: #282828;
-}
-
-#bg {
-  background: linear-gradient(105deg, #7dd, #dd7);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
 }
 
 header {
@@ -37,45 +30,48 @@ h2 {
   background: rgba(0,0,0,0.3);
   display: flex;
   margin: 16px;
-  padding: 16px;
+  padding: 0 16px;
   min-height: 280px;
   justify-content: space-between;
 }
 
+/* TO-DO: Figure out how to set max-width of side borders */
 #appBoxCont::before {
   content: "";
   position: absolute;
-  margin-top: -196px;
-  left: 1%;
-  right: 1%;
-  border-left: 49vw solid transparent;
-  border-right: 49vw solid transparent;
+  margin: -180px auto;
+  width: 1px;
+  left: 0;
+  right: 0;
+  border-left: 48vw solid transparent;
+  border-right: 48vw solid transparent;
   border-bottom: 180px solid rgba(0,0,0,0.3);
 }
 
 #appBoxCont::after {
   content: "";
   position: absolute;
-  margin-top: -182px;
-  left: 2%;
-  right: 2%;
-  border-left: 48vw solid transparent;
-  border-right: 48vw solid transparent;
-  border-bottom: 176px solid rgba(255,255,255,0.22);
+  margin: -166px auto;
+  width: 1px;
+  left: 0;
+  right: 0;
+  border-left: 43vw solid transparent;
+  border-right: 43vw solid transparent;
+  border-bottom: 160px solid rgba(255,255,255,0.22);
 }
 
 .cont {
   background: rgba(255,255,255,0.22);
-  padding: 32px;
+  padding: 16px;
   margin: auto 16px;
   width: 21vw;
-  height: 230px;
+  height: 280px;
   overflow: hidden;
   border-radius: 2%;
 }
 
 textarea {
-  min-height: 180px;
+  min-height: 240px;
   width: 97%;
 }
 
@@ -116,9 +112,11 @@ hr {
   content: "";
   background: rgba(255,255,255,0.22);
   position: absolute;
-  margin-top: 24px;
-  left: 5%;
-  width: 90%;
+  margin: 58px auto;
+  left: 2.5%;
+  right: 2.5%;
+  max-width: 1000px;
+  width: 95%;
   height: 64px;
 }
 
@@ -126,10 +124,12 @@ hr {
   content: "";
   background: rgba(0,0,0,0.3);
   position: absolute;
-  margin-top: 278px;
+  margin: 296px auto;
   left: 1.5%;
+  right: 1.5%;
+  max-width: 1030px;
   width: 97%;
-  height: 60px;
+  height: 76px;
 }
 
 .optionCont {
@@ -148,15 +148,6 @@ hr {
   align-items: center;
   margin: 2px;
   font-weight: bold;
-}
-
-/* Flex not working in column: should be 1:2:1 ratio */
-#valueDisplay {
-  flex: 2;
-}
-
-.incrementer {
-  flex: 1;
 }
 
 /* MEDIA QUERIES */
@@ -180,6 +171,7 @@ hr {
   
   #appBoxCont {
     flex-direction: column;
+    padding: 16px;
   }
   
   .cont {
@@ -204,6 +196,14 @@ hr {
     margin: -38px auto;
     width: 30%;
   }
+    
+  #valueDisplay {
+    flex: 2;
+  }
+
+  .incrementer {
+    flex: 1;
+  }
   
   .optionCont {
     flex-direction: row;
@@ -216,8 +216,10 @@ hr {
   }
   
   #appBoxCont::before {
+    border-left: 49vw solid transparent;
+    border-right: 49vw solid transparent;
     border-bottom: 106px solid rgba(0,0,0,0.3);;
-    margin: -122px 1%;
+    margin: -122px auto;
   }
   
   #outputBox::after {
@@ -226,7 +228,7 @@ hr {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 48px 1%;
+    margin: 32px 1.5%;
     height: 36px;
   }
 }
