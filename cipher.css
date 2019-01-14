@@ -26,7 +26,7 @@ h2 {
   font-size: 20px;
 }
 
-#appBoxCont {
+#appContents {
   background: rgba(0,0,0,0.3);
   display: flex;
   margin: 16px;
@@ -36,7 +36,7 @@ h2 {
 }
 
 /* TO-DO: Figure out how to set max-width of side borders */
-#appBoxCont::before {
+#appContents::before {
   content: "";
   position: absolute;
   margin: -180px auto;
@@ -48,7 +48,7 @@ h2 {
   border-bottom: 180px solid rgba(0,0,0,0.3);
 }
 
-#appBoxCont::after {
+#appContents::after {
   content: "";
   position: absolute;
   margin: -166px auto;
@@ -60,7 +60,7 @@ h2 {
   border-bottom: 160px solid rgba(255,255,255,0.22);
 }
 
-.cont {
+.mainContainer {
   background: rgba(255,255,255,0.22);
   padding: 16px;
   margin: auto 16px;
@@ -132,7 +132,7 @@ hr {
   height: 76px;
 }
 
-.optionCont {
+.optionContainer {
   background: gray;
   display: flex;
   flex-direction: column;
@@ -152,7 +152,7 @@ hr {
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 610px) {
-  #appBoxCont::after, #settingsBox::after, #settingsBox::before, #settingsBox span, #settingsBox hr {
+  #appContents::after, #settingsBox::after, #settingsBox::before, #settingsBox span, #settingsBox hr {
     display: none;
   }
   
@@ -169,12 +169,12 @@ hr {
     font-size: 16px;
   }
   
-  #appBoxCont {
+  #appContents {
     flex-direction: column;
     padding: 16px;
   }
   
-  .cont {
+  .mainContainer {
     width: auto;
     height: auto;
     margin: 16px 0 0 0;
@@ -205,17 +205,17 @@ hr {
     flex: 1;
   }
   
-  .optionCont {
+  .optionContainer {
     flex-direction: row;
     padding: 2px;
     height: 40px;
   }
   
-  .optionCont div {
+  .optionContainer div {
     flex: 1;
   }
   
-  #appBoxCont::before {
+  #appContents::before {
     border-left: 49vw solid transparent;
     border-right: 49vw solid transparent;
     border-bottom: 106px solid rgba(0,0,0,0.3);;
