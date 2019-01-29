@@ -1,70 +1,85 @@
-<!DOCTYPE = html>
+<!DOCTYPE html>
 <html>
-    
 
-<head>
+  <!--    -->
+
+  <head>
     <title>Encrypt Your Messages and Retain Your Privacy | Caesar's Cipher</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Thasadith|Aleo" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="cipher.css" rel="stylesheet" type="text/css">
-</head>
+  </head>
 
-<body>  
-  <header>
-    <h1>Javascript Caesar's Cipher</h1>
-    <h2>Encode and decode your messages</h2>
-  </header>
 
-  <main>
-    <section id="appContents">
-      
-  <!-- Input box -->
-      <div id="inputBox" class="mainContainer">
-        <textarea id="inputText" type="textarea" placeholder="Hello there, I am the Caesar Cipher. Please note the friendly message; this could easily have been an offensive one and you'd never have known!"></textarea>
-        <button id="runEncryption" class="button largebtn">Encrypt</button>
+
+  <body>
+    <div id="bg-shape"></div>
+
+    <header>
+      <div id="title-box">
+        <h1>Javascript Caesar's Cipher</h1>
+        <h2>Encode and decode your messages</h2>
       </div>
+      <div id="james-hooper-logo"></div>
+    </header>
 
-  <!-- Settings box -->
-      <div id="settingsBox" class="mainContainer">
-        
-  <!-- Increment buttons -->
-        <span>Settings</span><hr>
-        <div class="optionContainer">
-          <div id="decrementOffset" class="option incrementer">
-            <div>⊖</div>
+    <main>
+      <section id="app-contents">
+
+        <!-- Input box -->
+        <div id="input-box" class="main-container">
+          <textarea id="input-text" type="textarea" placeholder="If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out. If anyone wishes to decipher these, and get at their meaning, he must substitute the fourth letter of the alphabet, namely D, for A, and so with the others."></textarea>
+          <button id="encrypt-button" class="button largebtn">Encrypt</button>
+        </div>
+
+        <!-- Settings box -->
+        <div id="settings-box" class="main-container">
+
+          <!-- Increment buttons -->
+          <span>Shift value:</span>
+          <hr>
+
+          <div id="offset-wheel">
+            <div id="value-display">
+              <div><p id="offset-value">1</p></div>
+            </div>
           </div>
-          
-          <div id="valueDisplay" class="option">
-            <div id="offsetValue">1</div>
+
+          <div id="incrementers" class="option-container">
+            <div id="decrement-offset" class="option incrementer">
+              <div>⊖</div>
+            </div>
+            
+            <div id="increment-offset" class="incrementer option">
+              <div>⊕</div>
+            </div>
           </div>
+
           
-          <div id="incrementOffset" class="incrementer option">
-            <div>⊕</div>
+          <!-- Caps toggle -->
+          <div id="case-sensitive-options">
+            <hr><span>Case sensitive:</span><hr>
+            <div class="option-container">
+              <div id="case-sensitive-on" class="option">Yes</div>
+              <div id="case-sensitive-off" class="option">No</div>
+            </div>
           </div>
         </div>
-        
-  <!-- Caps toggle -->
-        <div id="caseSensitiveOptions">
-          <hr><span>Case sensitive:</span><hr>
-          <div class="optionContainer">
-            <div id="caseSensitiveOn" class="option">Yes</div>
-            <div id="caseSensitiveOff" class="option">No</div>
-          </div>
-        </div>
-      </div>
 
-  <!-- Output box -->
-      <div id="outputBox" class="mainContainer">
-        <textarea id="outputText" type="textarea"></textarea>
-        <button id="copyButton" class="button largebtn">Copy</button>
-      </div>
-      
-    </section>
-  </main>
-    
-    
+        <!-- Output box -->
+        <div id="output-box" class="main-container">
+          <textarea id="output-text" type="textarea"></textarea>
+          <button id="copy-button" class="button largebtn">Copy</button>
+        </div>
+
+      </section>
+    </main>
+  </body>
+
+
+
   <script src="cipher.js" type="text/javascript"></script>
-</body>
 
-    
 </html>
