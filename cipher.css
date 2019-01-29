@@ -1,24 +1,59 @@
+:root {
+  --slate: #7D869C;
+  --deepblue: #646B7D;
+  --khaki: #C7AC92;
+  --dust: #F9E9D9;
+  --xgray: #C0BABC;
+  --platinum: #E0D1C3;
+  --purple: #453750;
+  --deeppurple: #372C40;
+  --lightpurple: #50475F;
+  --ucla: #586994;
+}
+
 body {
-  background: linear-gradient(105deg, #7dd, #dd7);
-  margin: auto auto;
+  background: var(--purple);
+  margin: 3vh auto;
   min-width: 270px;
-  max-width: 950px;
-  font-family: garamond;
+  max-width: 1160px;
+  height: 100vh;
+  font-family: Thasadith, arial;
+  letter-spacing: 0.11em;
   text-align: center;
-  color: #282828;
+  color: var(--dust);
 }
 
 header {
-  background: linear-gradient(105deg, #7dd, #dd7);
-  display: block;
   position: relative;
-  margin: 8vh auto;
-  padding: 4px;
-  width: 60%;
-  border: thick solid white;
-  border-radius: 24px;
-  box-shadow: 0 0 20px 4px rgba(0,0,0,0.2);
-  z-index: 2;
+  margin: 3vh;
+  padding: 3px;
+}
+
+#title-box {
+  width: max-content;
+}
+
+#bg-shape {
+  background: black;
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+#bg-shape::after {
+  content: "";
+  background: var(--slate);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160%;
+  height: 300%;
+  border-radius: 50% 0 0 50%;
+  z-index: -2;
 }
 
 h2 {
@@ -26,8 +61,18 @@ h2 {
   font-size: 20px;
 }
 
-#appContents {
-  background: rgba(0,0,0,0.3);
+#james-hooper-logo {
+  background-image: url(https://i.ibb.co/p1QTSBF/logo-large-deep-purple-dust.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  margin-top: -96px;
+  margin-right: 12px;
+  width: 225px;
+  height: 83px;
+}
+
+#app-contents {
   display: flex;
   margin: 16px;
   padding: 0 16px;
@@ -35,210 +80,117 @@ h2 {
   justify-content: space-between;
 }
 
-/* TO-DO: Figure out how to set max-width of side borders */
-#appContents::before {
-  content: "";
-  position: absolute;
-  margin: -180px auto;
-  width: 1px;
-  left: 0;
-  right: 0;
-  border-left: 48vw solid transparent;
-  border-right: 48vw solid transparent;
-  border-bottom: 180px solid rgba(0,0,0,0.3);
-}
-
-#appContents::after {
-  content: "";
-  position: absolute;
-  margin: -166px auto;
-  width: 1px;
-  left: 0;
-  right: 0;
-  border-left: 43vw solid transparent;
-  border-right: 43vw solid transparent;
-  border-bottom: 160px solid rgba(255,255,255,0.22);
-}
-
-.mainContainer {
+.main-container {
   background: rgba(255,255,255,0.22);
   padding: 16px;
   margin: auto 16px;
-  width: 21vw;
-  height: 280px;
+  width: 30%;
   overflow: hidden;
   border-radius: 2%;
+  box-shadow: 0 2px 22px 2px rgba(0,0,0,0.4);
 }
 
 textarea {
-  min-height: 240px;
+  min-height: 60vh;
   width: 97%;
+  font-size: 16px;
+  letter-spacing: 0.09em;
 }
 
 .button {
   background: gray;
+  background: var(--purple);
+  position: block;
   overflow: hidden;
-  border: 2px solid #222;
+  border: none;
   border-radius: 5px;
-  color: white;
+  box-shadow: 2px 2px 8px 0 rgba(0,0,0,0.15);
+  font-family: Thasadith;
+  font-size: 16px;
+  letter-spacing: 0.2em;
   font-weight: bold;
+  color: var(--dust);
 }
 
 .largebtn {
   display: block;
-  margin: 6px auto -12px auto;
-  padding: 10px;
+  margin: 6px auto -2px auto;
+  padding: 10px 14px;
   min-width: 80px;
 }
 
 .option, .button {
+  transition: background 280ms, color 280ms;
+}
+
+.option:hover, .button:hover {
+  background: var(--khaki);
+  color: var(--deeppurple);
   cursor: pointer;
 }
 
-#valueDisplay {
-  cursor: default;
+#value-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 20.5%;
+  height: 19.5%;
+/*   transform: rotate(-76.1deg); */
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--dust);
 }
 
 hr {
-  border: thin solid gray;
+  border: thin solid #888;
 }
 
-#settingsBox {
+#settings-box {
   min-width: 100px;
   font-weight: bold;
 }
 
-#settingsBox::after {
-  content: "";
-  background: rgba(255,255,255,0.22);
-  position: absolute;
-  margin: 58px auto;
-  left: 2.5%;
-  right: 2.5%;
-  max-width: 1000px;
-  width: 95%;
-  height: 64px;
-}
-
-#settingsBox::before {
-  content: "";
-  background: rgba(0,0,0,0.3);
-  position: absolute;
-  margin: 296px auto;
-  left: 1.5%;
-  right: 1.5%;
-  max-width: 1030px;
-  width: 97%;
-  height: 76px;
-}
-
-.optionContainer {
-  background: gray;
+.option-container {
   display: flex;
-  flex-direction: column;
   padding: 6px;
   border-radius: 5px;
-  border: 2px solid lightgray;
 }
 
 .option {
-  background: lightgray;
+  background: var(--purple);
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2px;
+  padding: 4px;
+  margin: 0 6px;
   font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 3px 0 10px 0 rgba(0,0,0,0.25);
 }
 
-/* MEDIA QUERIES */
-@media only screen and (max-width: 610px) {
-  #appContents::after, #settingsBox::after, #settingsBox::before, #settingsBox span, #settingsBox hr {
-    display: none;
-  }
-  
-  header {
-    margin: 4vh auto;
-    width: 86%;
-  }
-  
-  h1 {
-    font-size: 24px;
-  }
-  
-  h2 {
-    font-size: 16px;
-  }
-  
-  #appContents {
-    flex-direction: column;
-    padding: 16px;
-  }
-  
-  .mainContainer {
-    width: auto;
-    height: auto;
-    margin: 16px 0 0 0;
-  }
-  
-  #inputBox {
-    margin-top: 62px;
-  }
-  
-  textarea {
-    min-height: 64px;
-  }
-  
-  #settingsBox {
-    position: absolute;
-    left: 0;
-    right: 0;
-    padding: 0;
-    margin: -38px auto;
-    width: 30%;
-  }
-    
-  #valueDisplay {
-    flex: 2;
-  }
-
-  .incrementer {
-    flex: 1;
-  }
-  
-  .optionContainer {
-    flex-direction: row;
-    padding: 2px;
-    height: 40px;
-  }
-  
-  .optionContainer div {
-    flex: 1;
-  }
-  
-  #appContents::before {
-    border-left: 49vw solid transparent;
-    border-right: 49vw solid transparent;
-    border-bottom: 106px solid rgba(0,0,0,0.3);;
-    margin: -122px auto;
-  }
-  
-  #outputBox::after {
-    content: "";
-    background: rgba(0,0,0,0.3);
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 32px 1.5%;
-    height: 36px;
-  }
+.selected-option {
+  background: var(--khaki);
+  color: var(--deeppurple);
 }
 
-@media only screen and (max-width: 340px) {
-  h1 {
-    font-size: 18px;
-  }
-  
-  h2 {
-    font-size: 14px;
-  }
+.selected-option:hover {
+  background: var(--dust);
+}
+
+#offset-wheel {
+  background-image: url(https://i.ibb.co/Bn99tCF/caesar-circle-6.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 10px 0;
+  height: 0;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 14px 3px rgba(0,0,0,0.34);
 }
