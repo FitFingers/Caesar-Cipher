@@ -13,7 +13,7 @@ body {
   min-width: 310px;
   max-width: 1160px;
   height: 90vh;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: Thasadith, arial;
   letter-spacing: 0.11em;
   text-align: center;
