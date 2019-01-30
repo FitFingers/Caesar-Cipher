@@ -8,12 +8,9 @@
 }
 
 body {
-  background: var(--purple);
-  margin: 3vh auto;
+  background: var(--purple);margin: 3vh auto;
   min-width: 310px;
   max-width: 1160px;
-  height: 90vh;
-  overflow-x: hidden;
   font-family: Thasadith, arial;
   letter-spacing: 0.11em;
   text-align: center;
@@ -203,11 +200,6 @@ hr {
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 660px) {
-  body {
-    width: 100vw;
-    height: 100vh;
-  }
-  
   #bg-shape::after {
     width: 145%;
   }
@@ -226,8 +218,10 @@ hr {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+    width: 85px;
+    height: 85px;
     top: 74px;
-    right: -170px;
+    right: -36px;
     z-index: -1;
   }
   
