@@ -4,7 +4,7 @@
   <!--    -->
 
   <head>
-    <title>Encrypt Your Messages and Retain Your Privacy | Caesar's Cipher</title>
+    <title>Encrypt Your Messages and Retain Your Privacy | Caesar Cipher</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato|Thasadith|Aleo" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
 
     <header>
       <div id="title-box">
-        <h1>Javascript Caesar's Cipher</h1>
+        <h1>Javascript Caesar Cipher</h1>
         <h2>Encode and decode your messages</h2>
       </div>
       <div id="james-hooper-logo"></div>
@@ -31,13 +31,15 @@
         <!-- Input box -->
         <div id="input-box" class="main-container">
           <textarea id="input-text" type="textarea" placeholder="If he had anything confidential to say, he wrote it in cipher, that is, by so changing the order of the letters of the alphabet, that not a word could be made out. If anyone wishes to decipher these, and get at their meaning, he must substitute the fourth letter of the alphabet, namely D, for A, and so with the others."></textarea>
-          <button id="encrypt-button" class="button largebtn">Encrypt</button>
+          <div id="button-container">
+            <button id="encrypt-button" class="button largebtn">Encrypt</button>
+            <button id="mobile-copy-button" class="button largebtn">Copy</button>
+          </div>
         </div>
 
+        
         <!-- Settings box -->
         <div id="settings-box" class="main-container">
-
-          <!-- Increment buttons -->
           <span>Shift value:</span>
           <hr>
 
@@ -51,27 +53,26 @@
             <div id="decrement-offset" class="option incrementer">
               <div>⊖</div>
             </div>
-            
+
             <div id="increment-offset" class="incrementer option">
               <div>⊕</div>
             </div>
           </div>
 
-          
-          <!-- Caps toggle -->
           <div id="case-sensitive-options">
             <hr><span>Case sensitive:</span><hr>
-            <div class="option-container">
+            <div id="case-sensitive-toggles" class="option-container">
               <div id="case-sensitive-on" class="option">Yes</div>
               <div id="case-sensitive-off" class="option">No</div>
             </div>
           </div>
         </div>
 
+        
         <!-- Output box -->
         <div id="output-box" class="main-container">
           <textarea id="output-text" type="textarea"></textarea>
-          <button id="copy-button" class="button largebtn">Copy</button>
+          <button id="desktop-copy-button" class="button largebtn">Copy</button>
         </div>
 
       </section>
