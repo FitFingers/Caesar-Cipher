@@ -9,7 +9,7 @@
 
 body {
   background: var(--purple);margin: 3vh auto;
-  min-width: 310px;
+  min-width: 290px;
   max-width: 1160px;
   font-family: Thasadith, arial;
   letter-spacing: 0.11em;
